@@ -6,6 +6,7 @@ import Newsletter from "../components/newsletter";
 import axios from "axios";
 import BlogCard from "../components/blogCard";
 
+
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
 
@@ -32,9 +33,9 @@ export default function Home() {
       <div>
         <Navbar />
       </div>
-      {/* <div>
+      <div>
         <Carousel />
-      </div> */}
+      </div>
       <div>
         {localStorage.getItem("authToken") ? (
           blogs && blogs.length > 0 ? (

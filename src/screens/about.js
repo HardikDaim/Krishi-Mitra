@@ -85,60 +85,53 @@ export default function About() {
               </p>
               <h1 className="text-4xl font-bold mb-3 mt-5">Our Mission</h1>
               <p className="lead">
-              Our mission is to assist farmers in quickly and accurately identify crop diseases using technological means.We also provide expert support after the disease is identified.
+                Our mission is to assist farmers in quickly and accurately
+                identify crop diseases using technological means.We also provide
+                expert support after the disease is identified.
               </p>
-             
+
               <h1 className="text-4xl font-bold mb-3 mt-5">
                 Our Commitment to Farmers
               </h1>
               <p className="lead">
-              We are committed to doing real time surveys in different states by collaborating with NGOs and ask the exact problem that the farmers are facing and accordingly provide the solution by taking into consideration all the factors which include climatic conditions , area of agriculture etc.              </p>
-              <h3 class="text-4xl font-bold mb-3 mt-5">Our Team</h3>
+                We are committed to doing real time surveys in different states
+                by collaborating with NGOs and ask the exact problem that the
+                farmers are facing and accordingly provide the solution by
+                taking into consideration all the factors which include climatic
+                conditions , area of agriculture etc.{" "}
+              </p>
+              <h3 class="text-4xl font-bold mb-5 mt-5">Our Team</h3>
 
               <div className="row g-4">
                 {/* Team item*/}
                 <div className="col-sm-6 col-lg-3">
                   <div className="text-center">
-                    {/* Avatar img */}
-                    <div className="avatar avatar-xxl mb-2">
-                      <img
-                        className="avatar-img rounded-circle"
-                        src="images/deepak:jpg.jpg"
-                        height="120"
-                        width="120"
-                        alt="avatar"
-                      />
+                    <div className="d-flex flex-column align-items-center">
+                      {/* <!-- Avatar img --> */}
+                      <div className="avatar avatar-xxl mb-2">
+                        <img
+                          className="avatar-img rounded-circle"
+                          src="images/Hardik.jpg"
+                          height="120"
+                          width="120"
+                          alt="avatar"
+                        />
+                      </div>
+                      <h5 className="font-bold text-3xl m-2">Hardik Daim</h5>
+                      <p className="m-0 text-red-500">Team Leader</p>
                     </div>
-                    <h5 className="font-bold text-3xl m-2">Hardik Daim</h5>
-                    <p className="m-0">Team Leader</p>
-                    <ul className="nav justify-content-center">
-                      <li className="nav-item">
-                        <a
-                          className="nav-link px-2 fs-5"
-                          href="https://www.facebook.com/DeepakDaim"
-                        >
-                          <i className="fab fa-facebook-square"></i>
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          className="nav-link px-2 fs-5"
-                          href="mailto:dkdaim77@gmail.com"
-                        >
-                          <i className="far fa-envelope"></i>
-                        </a>
-                      </li>
-                    </ul>
                   </div>
                 </div>
                 {/* Team item*/}
                 <div className="col-sm-6 col-lg-3">
                   <div className="text-center">
+
+                  <div className="d-flex flex-column align-items-center">
                     {/* Avatar img */}
                     <div className="avatar avatar-xxl mb-2">
                       <img
                         className="avatar-img rounded-circle"
-                        src="images/Sushil.jpg"
+                        src="images/Gurpreet.jpg"
                         height="120"
                         width="120"
                         alt="avatar"
@@ -146,34 +139,17 @@ export default function About() {
                     </div>
                     <h5 className="font-bold text-3xl m-2">Gurpreet Singh</h5>
                     <p className="m-0">Team Member</p>
-                    <ul className="nav justify-content-center">
-                      <li className="nav-item">
-                        <a
-                          className="nav-link px-2 fs-5"
-                          href="https://www.facebook.com/sushil.daim.7"
-                        >
-                          <i className="fab fa-facebook-square"></i>
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          className="nav-link px-2 fs-5"
-                          href="mailto:sushilkumardaim@gmail.com"
-                        >
-                          <i className="far fa-envelope"></i>
-                        </a>
-                      </li>
-                    </ul>
+                  </div>
                   </div>
                 </div>
                 {/* Team item*/}
                 <div className="col-sm-6 col-lg-3">
-                  <div className="text-center">
+                  <div className="d-flex flex-column align-items-center">
                     {/* Avatar img */}
                     <div className="avatar avatar-xxl mb-2">
                       <img
                         className="avatar-img rounded-circle"
-                        src="images/Kewal.jog.jpg"
+                        src="images/Deepti.jpg"
                         height="120"
                         width="120"
                         alt="avatar"
@@ -181,35 +157,16 @@ export default function About() {
                     </div>
                     <h5 className="font-bold text-3xl m-2">Deepti Midha</h5>
                     <p className="m-0">Team Member</p>
-                    <ul className="nav justify-content-center">
-                      <li className="nav-item">
-                        <a
-                          className="nav-link px-2 fs-5"
-                          href="https://www.facebook.com/profile.php?id=100010666143708"
-                        >
-                          <i className="fab fa-facebook-square"></i>
-                        </a>
-                      </li>
-
-                      <li className="nav-item">
-                        <a
-                          className="nav-link px-2 fs-5"
-                          href="mailto:kewalkrishandaim@gmail.com"
-                        >
-                          <i className="far fa-envelope"></i>
-                        </a>
-                      </li>
-                    </ul>
                   </div>
                 </div>
                 {/* Team item*/}
                 <div className="col-sm-6 col-lg-3">
-                  <div className="text-center">
+                  <div className="d-flex flex-column align-items-center">
                     {/* Avatar img */}
                     <div className="avatar avatar-xxl mb-2">
                       <img
                         className="avatar-img rounded-circle"
-                        src="images/Rajinder.jpg"
+                        src="images/Divyansh.jpg"
                         height="120"
                         width="120"
                         alt="avatar"
@@ -217,55 +174,15 @@ export default function About() {
                     </div>
                     <h5 className="font-bold text-3xl m-2">Divyansh Kaushik</h5>
                     <p className="m-0">Team Member</p>
-                    <ul className="nav justify-content-center">
-                      <li className="nav-item">
-                        <a className="nav-link px-2 fs-5" href="#">
-                          <i className="fab fa-facebook-square"></i>
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link px-2 fs-5" href="#">
-                          <i className="far fa-envelope"></i>
-                        </a>
-                      </li>
-                    </ul>
                   </div>
                 </div>
                 <div className="col-sm-6 col-lg-3">
-                  <div className="text-center">
+                  <div className="d-flex flex-column align-items-center">
                     {/* Avatar img */}
                     <div className="avatar avatar-xxl mb-2">
                       <img
                         className="avatar-img rounded-circle"
-                        src="images/Rajinder.jpg"
-                        height="120"
-                        width="120"
-                        alt="avatar"
-                      />
-                    </div>
-                    <h5 className="font-bold text-3xl m-2">Harmanpreet Kaur</h5>
-                    <p className="m-0">Team Member</p>
-                    <ul className="nav justify-content-center">
-                      <li className="nav-item">
-                        <a className="nav-link px-2 fs-5" href="#">
-                          <i className="fab fa-facebook-square"></i>
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link px-2 fs-5" href="#">
-                          <i className="far fa-envelope"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="col-sm-6 col-lg-3">
-                  <div className="text-center">
-                    {/* Avatar img */}
-                    <div className="avatar avatar-xxl mb-2">
-                      <img
-                        className="avatar-img rounded-circle"
-                        src="images/Rajinder.jpg"
+                        src="images/Kabir.jpg"
                         height="120"
                         width="120"
                         alt="avatar"
@@ -273,27 +190,37 @@ export default function About() {
                     </div>
                     <h5 className="font-bold text-3xl m-2">Kabir</h5>
                     <p className="m-0">Team Member</p>
-                    <ul className="nav justify-content-center">
-                      <li className="nav-item">
-                        <a className="nav-link px-2 fs-5" href="#">
-                          <i className="fab fa-facebook-square"></i>
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link px-2 fs-5" href="#">
-                          <i className="far fa-envelope"></i>
-                        </a>
-                      </li>
-                    </ul>
+                  </div>
+                </div>
+                <div className="col-sm-6 col-lg-3">
+                  <div className="d-flex flex-column align-items-center">
+                    {/* Avatar img */}
+                    <div className="d-flex flex-column align-items-center">
+                      <img
+                        className="avatar-img rounded-circle"
+                        src="images/Harman.jpeg"
+                        height="120"
+                        width="120"
+                        alt="avatar"
+                      />
+                    </div>
+                    <h5 className="font-bold text-3xl m-2">Harmanpreet Kaur</h5>
+                    <p className="m-0">Team Member</p>
                   </div>
                 </div>
               </div>
               {/* Team END */}
               {/* Service START */}
-           
-              <h1 className="text-4xl font-bold mb-3 mt-5">Join us in supporting Farmers</h1>
+
+              <h1 className="text-4xl font-bold mb-3 mt-5">
+                Join us in supporting Farmers
+              </h1>
               <p className="lead mb-5">
-              Whether you are a farmer looking to enhance your crop yield or an advocate for sustainable agriculture , Bit by Bit welcomes you with open arms to join our mission.Together we can support farmers and cultivate a sustainable future.              </p>
+                Whether you are a farmer looking to enhance your crop yield or
+                an advocate for sustainable agriculture , Bit by Bit welcomes
+                you with open arms to join our mission.Together we can support
+                farmers and cultivate a sustainable future.{" "}
+              </p>
             </div>{" "}
             {/* Col END */}
           </div>
