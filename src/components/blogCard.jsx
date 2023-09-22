@@ -78,18 +78,30 @@ export default function BlogCard(props) {
           }}
         >
           <CardActions>
-            <Typography variant="body2" color="text.secondary">
-              <span
-                style={{
-                  fontSize: "12px",
-                }}
-              >
-                By:{" "}
-                <span className="font-bold text-indigo-700">
-                  {props.author}
-                </span>
-              </span>
-            </Typography>
+          <Typography variant="body2" color="text.secondary">
+  <span
+    style={{
+      display: "flex",
+      alignItems: "center",
+      fontSize: "12px",
+    }}
+  >
+    
+    <img
+      src="https://img.icons8.com/color/48/circled-user-male-skin-type-7--v1.png"
+      alt="Unknown Avatar"
+      style={{
+        width: "24px", // You can adjust the width as needed
+        height: "24px", // You can adjust the height as needed
+        marginLeft: "0px", // Add some spacing between "By:" and the avatar
+      }}
+    />
+    <span className="font-bold text-indigo-700" style={{ marginLeft: "8px" }}>
+      {props.author}
+    </span>
+  </span>
+</Typography>
+
             <span
               className="ml-3"
               style={{

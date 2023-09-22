@@ -3,11 +3,17 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 export default function Contact() {
+  const bgColor = {
+    backgroundColor: "#f0f4f8",
+}
   return (
+    
     <>
       <div>
         <Navbar />{" "}
       </div>
+      <div style={bgColor}>
+
       <section className="pt-4">
         <div className="container">
           <div className="row">
@@ -15,13 +21,13 @@ export default function Contact() {
               <div
                 className="card bg-dark-overlay-4 overflow-hidden card-bg-scale h-400 text-center"
                 style={{
-                  backgroundImage: "url(images/about-img.jpg)",
+                  backgroundImage: "url(images/contact-img.png)",
                   backgroundPosition: "center left",
                   backgroundSize: "cover",
                 }}
               >
                 <img
-                  src="/about-img.jpg"
+                  src="/contact-img.png"
                   style={{
                     backgroundPosition: "center left",
                     backgroundSize: "cover",
@@ -117,6 +123,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      </div>
       <div>
         <Footer />
       </div>

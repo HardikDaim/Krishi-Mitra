@@ -3,17 +3,24 @@ import { Link, useNavigate } from "react-router-dom"
 
 export default function Navbar() {
 
+    const bgColor = {
+        backgroundColor: "#f0f4f8",
+    }
+
     const navigate = useNavigate()
     const handleLogout = () => {
         localStorage.removeItem("authToken");
         navigate("/login")
     }
     return (
+        <div style={bgColor}>
+
+        
         <div className="container-fluid">
             <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3  border-bottom">
                 <div className="col-md-3 mb-2 mb-md-0">
                     <Link to="/" className="d-inline-flex link-body-emphasis text-decoration-none">
-                        <img src='logo.jpg' alt='Logo' width={ 40} height={40} ></img>
+                        <img src='/logo-removebg-preview.png' alt='Logo' width={ 40} height={40} ></img>
                         <span class="fs-4 text-indigo-600 font-semibold">कृषि-मित्र</span>
                     </Link>
                 </div>
@@ -53,6 +60,7 @@ export default function Navbar() {
                     }
                 </div>
             </header>
+        </div>
         </div>
     );
 }

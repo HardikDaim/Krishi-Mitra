@@ -4,12 +4,17 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
 export default function Services() {
+  const bgColor = {
+    backgroundColor: "#f0f4f8",
+}
   return (
     <>
     <div>
       <Navbar />{" "}
     </div>
-    <section className="pt-4">
+    <div style={bgColor}>
+
+    <section className="pt-4" >
       <div className="container">
         <div className="row">
           <div className="col-12">
@@ -22,7 +27,7 @@ export default function Services() {
               }}
             >
               <img
-                src="/about-img.jpg"
+                src="/services-img.png"
                 style={{
                   backgroundPosition: "center left",
                   backgroundSize: "cover",
@@ -44,7 +49,7 @@ export default function Services() {
                           style={{ textDecoration: "none", color: "white" }}
                           to="/"
                         >
-                          <i className="bi bi-house me-1"></i> Home
+                          <i className="bi bi-house me-1"></i> Home 
                         </Link>
                       </li>
                       <li
@@ -118,6 +123,7 @@ export default function Services() {
         </div>
       </div>
     </section>
+    </div>
     <div>
       <Footer />
     </div>

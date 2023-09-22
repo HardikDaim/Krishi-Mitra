@@ -1,36 +1,38 @@
-import React, { useState } from 'react'
-import { Link, json, useNavigate } from "react-router-dom"
-import Navbar from '../components/navbar'
-import Footer from '../components/footer'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 
 const currentYear = new Date().getFullYear();
 
 export default function Login() {
-  let navigate = useNavigate()
+  const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
-    email: "",
-    password: ""
+    email: '',
+    password: '',
   });
-  const [userId, setUserId] = useState(null);
+  const [showAlert, setShowAlert] = useState(false);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await fetch('http://localhost:4000/api/loginUser', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email: credentials.email, password: credentials.password })
+        body: JSON.stringify({ email: credentials.email, password: credentials.password }),
       });
 
       if (response.ok) {
         const data = await response.json();
         console.log(data); // Handle success response
-        localStorage.setItem("userEmail", credentials.email);
-        localStorage.setItem("authToken", data.authToken);
-        
-        navigate("/");
-        alert("Login Successful")
+        localStorage.setItem('userEmail', credentials.email);
+        localStorage.setItem('authToken', data.authToken);
+
+        // Set showAlert to true to show the Bootstrap modal
+        setShowAlert(true);
+        navigate('/');
       } else {
         throw new Error('Failed to login user');
       }
@@ -110,14 +112,37 @@ export default function Login() {
               >
                 Log in
               </button>
-              <p className='block text-sm font-medium leading-6 text-gray-900 py-2'>Don't have an account?<Link to="/signup" className='font-semibold text-indigo-600'> Sign up now</Link></p>
+              <p className="block text-sm font-medium leading-6 text-gray-900 py-2">
+                Don't have an account?<Link to="/signup" className="font-semibold text-indigo-600"> Sign up now</Link>
+              </p>
             </div>
           </form>
-          <p className="text-center mt-3 text-body-secondary">© {currentYear}, All rights reserved</p>
         </div>
+
+        {/* Bootstrap Modal for Custom Alert */}
+        {showAlert && (
+          <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLongTitle">Login Successful</h5>
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => setShowAlert(false)}>
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div className="modal-body">
+                  Your login was successful.
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={() => setShowAlert(false)}>Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
       </div>
       <Footer />
     </>
-
-  )
+  );
 }

@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const bgColor = {
+    backgroundColor: "#f0f4f8",
+}
   return (
-    <div>
+    <div style={bgColor}>
       <div className="container-fluid">
         <hr ></hr>
         <footer className="py-5">
@@ -11,7 +14,7 @@ export default function Footer() {
             to="/"
             className="d-inline-flex link-body-emphasis text-decoration-none"
           >
-            <img src="logo.jpg" alt="Logo" width={180} height={180}></img>
+            <img src="/logo-removebg-preview.png" alt="Logo" width={180} height={180}></img>
             <span class="text-indigo-600 font-semibold " style={{ fontSize: "100px "}}>कृषि-मित्र</span>
           </Link> 
           <div className="row">

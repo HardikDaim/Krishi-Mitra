@@ -12,6 +12,7 @@ import About from './screens/about'
 import Services from './screens/services'
 import Contact from './screens/contact'
 import CreateBlog from './screens/createBlog';
+import AddInfo from './screens/addinfo';
 
 
 
@@ -28,6 +29,7 @@ function App() {
             <Route exact path="/create-blog" element={<CreateBlog />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/addinfo" element={<AddInfo />} />
           </Routes>
         </div>
       </Router>

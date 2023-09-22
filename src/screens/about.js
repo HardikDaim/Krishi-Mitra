@@ -4,11 +4,16 @@ import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 
 export default function About() {
+  const bgColor = {
+    backgroundColor: "#f0f4f8",
+}
   return (
     <>
       <div>
         <Navbar />
       </div>
+      <div style={bgColor}>
+
       <section className="pt-4">
         <div className="container">
           <div className="row">
@@ -226,6 +231,7 @@ export default function About() {
           </div>
         </div>
       </section>
+      </div>
       {/* About END */}
       <div>
         <Footer />
