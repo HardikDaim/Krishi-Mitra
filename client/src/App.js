@@ -11,8 +11,6 @@ import Signup from "./screens/signup";
 import About from "./screens/about";
 import Services from "./screens/services";
 import Contact from "./screens/contact";
-import CreateBlog from "./screens/createBlog";
-import AddInfo from "./screens/addinfo";
 import Profile from "./screens/profile";
 import { useSelector } from "react-redux";
 
@@ -31,13 +29,11 @@ function App() {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/services" element={<Services />} />
           <Route exact path="/contact" element={<Contact />} />
-          <Route exact path="/create-blog" element={<CreateBlog />} />
           <Route
             path="/profile/:userId"
             element={isAuth ? <Profile /> : <Navigate to="/" />}
           />
           <Route exact path="/signup" element={<Signup />} />
-          <Route exact path="/addinfo" element={<AddInfo />} />
         </Routes>
       </div>
     </Router>

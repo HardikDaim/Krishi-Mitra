@@ -1,5 +1,13 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setLogout } from "../state/index";
+import CottageTwoToneIcon from "@mui/icons-material/CottageTwoTone";
+import InfoTwoToneIcon from "@mui/icons-material/InfoTwoTone";
+import MedicalInformationTwoToneIcon from "@mui/icons-material/MedicalInformationTwoTone";
+import ContactMailTwoToneIcon from "@mui/icons-material/ContactMailTwoTone";
+import Person4TwoToneIcon from "@mui/icons-material/Person4TwoTone";
+import Tooltip from "@mui/material/Tooltip";
 
 export default function Navbar() {
   const bgColor = {
@@ -7,17 +15,19 @@ export default function Navbar() {
   };
 
   const navigate = useNavigate();
+  const dispatch = useDispatch(); // Get the dispatch function from Redux
+
+  const isLoggedIn = useSelector((state) => state.token !== null);
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    // Dispatch the setLogout action to update Redux state
+    dispatch(setLogout());
     navigate("/");
   };
-
-  const isLoggedIn = localStorage.getItem("token");
 
   return (
     <div style={bgColor}>
       <div className="container-fluid">
-        <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3  border-bottom">
+        <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-1  border-bottom">
           <div className="col-md-3 mb-2 mb-md-0">
             <Link
               to="/home"
@@ -37,13 +47,15 @@ export default function Navbar() {
 
           {isLoggedIn ? (
             <div>
-              <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+              <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 ">
                 <li>
                   <Link
                     to="/home"
                     className="nav-link text-indigo-600 hover:text-indigo-500 font-semibold px-2"
                   >
-                    Home
+                    <Tooltip title="Home">
+                      <CottageTwoToneIcon style={{ fontSize: "3rem" }} />
+                    </Tooltip>
                   </Link>
                 </li>
                 <li>
@@ -51,7 +63,9 @@ export default function Navbar() {
                     to="/about"
                     className="nav-link text-indigo-600 hover:text-indigo-500 font-semibold px-2"
                   >
-                    About
+                    <Tooltip title="About Us">
+                      <InfoTwoToneIcon style={{ fontSize: "3rem" }} />
+                    </Tooltip>
                   </Link>
                 </li>
                 <li>
@@ -59,7 +73,11 @@ export default function Navbar() {
                     to="/services"
                     className="nav-link text-indigo-600 hover:text-indigo-500 font-semibold px-2"
                   >
-                    Services
+                    <Tooltip title="Our Services">
+                      <MedicalInformationTwoToneIcon
+                        style={{ fontSize: "3rem" }}
+                      />
+                    </Tooltip>
                   </Link>
                 </li>
                 <li>
@@ -67,16 +85,20 @@ export default function Navbar() {
                     to="/contact"
                     className="nav-link text-indigo-600 hover:text-indigo-500 font-semibold px-2"
                   >
-                    Contact
+                    <Tooltip title="Contact us">
+                      <ContactMailTwoToneIcon style={{ fontSize: "3.1rem" }} />
+                    </Tooltip>
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/profile"
+                  <lLink
+                    to="/home"
                     className="nav-link text-indigo-600 hover:text-indigo-500 font-semibold px-2"
                   >
-                    Profile
-                  </Link>
+                    <Tooltip title="My Profile">
+                      <Person4TwoToneIcon style={{ fontSize: "3.1rem" }} />
+                    </Tooltip>
+                  </lLink>
                 </li>
               </ul>
             </div>
@@ -88,7 +110,7 @@ export default function Navbar() {
                     to="/home"
                     className="nav-link text-indigo-600 hover:text-indigo-500 font-semibold px-2"
                   >
-                    Home
+                    <CottageTwoToneIcon style={{ fontSize: "3rem" }} />
                   </Link>
                 </li>
                 <li>
@@ -96,7 +118,7 @@ export default function Navbar() {
                     to="/about"
                     className="nav-link text-indigo-600 hover:text-indigo-500 font-semibold px-2"
                   >
-                    About
+                    <InfoTwoToneIcon style={{ fontSize: "3rem" }} />
                   </Link>
                 </li>
                 <li>
@@ -104,7 +126,9 @@ export default function Navbar() {
                     to="/services"
                     className="nav-link text-indigo-600 hover:text-indigo-500 font-semibold px-2"
                   >
-                    Services
+                    <MedicalInformationTwoToneIcon
+                      style={{ fontSize: "3rem" }}
+                    />
                   </Link>
                 </li>
                 <li>
@@ -112,7 +136,7 @@ export default function Navbar() {
                     to="/contact"
                     className="nav-link text-indigo-600 hover:text-indigo-500 font-semibold px-2"
                   >
-                    Contact
+                    <ContactMailTwoToneIcon style={{ fontSize: "3rem" }} />
                   </Link>
                 </li>
               </ul>

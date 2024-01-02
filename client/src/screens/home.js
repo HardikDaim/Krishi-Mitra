@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-import axios from "axios";
-import BlogCard from "../components/blogCard";
 import UserWidget from "../components/widgets/UserWidget";
 import { Box, useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
@@ -22,39 +19,44 @@ export default function Home() {
     backgroundColor: "#f0f4f8",
   };
 
-  
   return (
     <div>
       <div>
         <Navbar />
       </div>
-       <div style={backgroundImageStyle}>
-     
-      <Box
-        width="100%"
-        padding="2rem 6%"
-        display={isNonMobileScreens ? "flex" : "block"}
-        gap="1.5rem"
-        justifyContent=""
-      >
-        <Box flexBasis={isNonMobileScreens ? "26%" : undefined}>
-          <UserWidget userId={_id} picturePath={picturePath} />
-        </Box>
+      <div style={backgroundImageStyle}>
         <Box
-          flexBasis={isNonMobileScreens ? "42%" : undefined}
-          mt={isNonMobileScreens ? undefined : "2rem"}
+          width="100%"
+          padding="2rem 6%"
+          display={isNonMobileScreens ? "flex" : "block"}
+          gap="1.5rem"
+          justifyContent=""
         >
-         <MyPostWidget picturePath={picturePath} />
-         {/* To Show Posts */}
-          <PostsWidget userId={_id} />
-        </Box>
-        {isNonMobileScreens && (
-          <Box flexBasis="26%">
-            <Box  />
-            <FriendListWidget userId={_id} />
+          <Box
+            flexBasis={isNonMobileScreens ? "26%" : undefined}
+         
+          >
+            <UserWidget userId={_id} picturePath={picturePath} />
           </Box>
-        )}
-      </Box>
+          <Box
+            flexBasis={isNonMobileScreens ? "42%" : undefined}
+            mt={isNonMobileScreens ? undefined : "2rem"}
+          >
+            <MyPostWidget picturePath={picturePath} />
+            {/* To Show Posts */}
+            <PostsWidget userId={_id} />
+          </Box>
+          {isNonMobileScreens && (
+            <Box
+              flexBasis="26%"
+              position="sticky"
+              top="0"
+            >
+              <Box />
+              <FriendListWidget userId={_id} />
+            </Box>
+          )}
+        </Box>
       </div>
       <div>
         <Footer />

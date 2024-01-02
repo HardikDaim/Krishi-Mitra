@@ -18,8 +18,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
         throw new Error("Failed to fetch posts");
       }
       const data = await response.json();
-      const reversedData = data.reverse();
-      dispatch(setPosts({ posts: reversedData }));
+      dispatch(setPosts({ posts: data }));
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
@@ -38,8 +37,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
         throw new Error("Failed to fetch user posts");
       }
       const data = await response.json();
-      const reversedData = data.reverse();
-      dispatch(setPosts({ posts: reversedData }));
+      dispatch(setPosts({ posts: data }));
     } catch (error) {
       console.error("Error fetching user posts:", error);
     }

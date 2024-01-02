@@ -71,3 +71,41 @@ export const likePost = async (req, res) => {
     res.status(404).json({ message: err.message });
   }
 };
+
+/* CREATE Comment */
+export const createComment = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { userId, text } = req.body;
+    const post = await Post.findById(id);
+
+    // Add the new comment to the post's comments array
+    post.comments.push({ userId, text });
+
+    const updatedPost = await Post.findByIdAndUpdate(
+      id,
+      { comments: post.comments },
+      { new: true }
+    );
+
+    res.status(200).json(updatedPost);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+};
+
+/* DELETE */
+export const deletePost = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedPost = await Post.findByIdAndDelete(id);
+
+    if (!deletedPost) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    res.status(200).json({ message: "Post deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};

@@ -11,9 +11,7 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    setMode: (state) => {
-      state.mode = state.mode === "light" ? "dark" : "light";
-    },
+ 
     setLogin: (state, action) => {
       state.user = action.payload.user;
       state.token = action.payload.token;
@@ -24,13 +22,21 @@ export const authSlice = createSlice({
     },
     setFriends: (state, action) => {
       if (state.user) {
-        state.user.friends = action.payload.friends;
+        const { friends } = action.payload;
+        
+        // Prevent making the logged-in user a friend of themselves
+        if (friends.some(friend => friend._id === state.user._id)) {
+          console.error("Cannot make yourself a friend.");
+          return;
+        }
+    
+        state.user.friends = friends;
       } else {
-        console.error("user friends non-existent :(");
+        console.error("User friends non-existent :(");
       }
     },
     setPosts: (state, action) => {
-      state.posts = action.payload.posts;
+      state.posts = action.payload.posts.reverse();
     },
     setPost: (state, action) => {
       const updatedPosts = state.posts.map((post) => {
@@ -39,9 +45,20 @@ export const authSlice = createSlice({
       });
       state.posts = updatedPosts;
     },
+    deletePost: (state, action) => {
+      const postIdToDelete = action.payload._id; 
+      state.posts = state.posts.filter((post) => post._id !== postIdToDelete);
+    },
+    addComment: (state, action) => {
+      const { postId, comment } = action.payload;
+      const postToUpdate = state.posts.find((post) => post._id === postId);
+      if (postToUpdate) {
+        postToUpdate.comments.push(comment);
+      }
+    },
   },
 });
 
-export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost } =
+export const { setMode, setLogin, setLogout, setFriends, setPosts, setPost , deletePost, addComment } =
   authSlice.actions;
 export default authSlice.reducer;

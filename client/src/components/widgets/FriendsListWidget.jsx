@@ -1,4 +1,4 @@
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, Divider, Typography, useTheme } from "@mui/material";
 import Friend from "../Friend";
 import WidgetWrapper from "../WidgetWrapper";
 import { useEffect } from "react";
@@ -7,7 +7,6 @@ import { setFriends } from "../../state/index.js";
 
 const FriendListWidget = ({ userId }) => {
   const dispatch = useDispatch();
-  const { palette } = useTheme();
   const token = useSelector((state) => state.token);
   const friends = useSelector((state) => state.user.friends);
 
@@ -30,24 +29,30 @@ const FriendListWidget = ({ userId }) => {
   return (
     <WidgetWrapper>
       <Typography
-        
         variant="h5"
         fontWeight="500"
         sx={{ mb: "1.5rem" }}
       >
-        Friend List
+        Expert's List for you
+      <Divider />
       </Typography>
-      <Box display="flex" flexDirection="column" gap="1.5rem">
-        {friends.map((friend) => (
-          <Friend
-            key={friend._id}
-            friendId={friend._id}
-            name={`${friend.firstName} ${friend.lastName}`}
-            subtitle={friend.occupation}
-            userPicturePath={friend.picturePath}
-          />
-        ))}
-      </Box>
+      {friends && friends.length > 0 ? (
+        <Box display="flex" flexDirection="column" gap="1.5rem">
+          {friends.map((friend) => (
+            <Friend
+              key={friend._id}
+              friendId={friend._id}
+              name={`${friend.firstName} ${friend.lastName}`}
+              subtitle={friend.occupation}
+              userPicturePath={friend.picturePath}
+            />
+          ))}
+        </Box>
+      ) : (
+        <Typography variant="body1" color="textSecondary">
+          You havn't Subscribed to Experts Yet !
+        </Typography>
+      )}
     </WidgetWrapper>
   );
 };

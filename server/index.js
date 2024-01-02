@@ -1,22 +1,20 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+import express from "express";
+import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import multer from 'multer';
-import helmet from 'helmet';
-import morgan from 'morgan';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import multer from "multer";
+import helmet from "helmet";
+import morgan from "morgan";
+import path from "path";
+import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
-import {register} from "./controllers/auth.js";
+import { register } from "./controllers/auth.js";
 import { createPost } from "./controllers/posts.js";
 import { verifyToken } from "./middleware/auth.js";
-import User from "./models/users.js";
-import Post from "./models/posts.js";
-import { users, posts } from "./data/index.js";
+import { deletePost } from './controllers/posts.js' ; 
 
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
@@ -47,45 +45,31 @@ const upload = multer({ storage });
 app.post("/auth/register", upload.single("picture"), register);
 app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
+// Define a route for deleting a post
+app.delete('/auth/posts/:id', deletePost);
+
 // /* ROUTES */
 app.use("/auth", authRoutes);
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 
-
 // Mongoose Setup
 const PORT = process.env.PORT || 4000;
- await mongoose
-  .connect('mongodb+srv://hardikdaim:hardikdon2004@cluster0.vuuzkix.mongodb.net/?retryWrites=true&w=majority' ,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+const DATABASE_NAME = "Krishi-Mitra";
+await mongoose
+  .connect(
+    `mongodb+srv://hardikdaim:hardikdon2004@cluster0.vuuzkix.mongodb.net/${DATABASE_NAME}`,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(async () => {
+    console.log("Connected to MongoDB");
   })
-    .then(async () => {
-      console.log("Connected to MongoDB");
-      // Adding Sample Data
-      // User.insertMany(users);
-      // Post.insertMany(posts);
-})
-    .catch((error) => {
-      console.error("Error connecting to MongoDB:", error);
-    });
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
-
-// // middlewares
-// app.use(cors());
-// app.use(express.json());
-// app.use(morgan('dev'))
-// app.use("/api", require("./routes/createUser")); // Mount the 'createUser' module
-// app.use("/api", require("./routes/displayData"));
-// app.use("/api", require("./routes/orderData"));
-// app.use("/api", require("./routes/blogRoute"));
+  .catch((error) => {
+    console.error("Error connecting to MongoDB:", error);
+  });
 
 // listen
 app.listen(PORT, () => {
